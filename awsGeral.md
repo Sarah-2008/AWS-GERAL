@@ -62,3 +62,7 @@ Quanto mais clientes utilizam a plataforma, menor o custo por unidade de recurso
 Parte dessa redução de custo é repassada aos clientes
 
 👉 Mesmo com preços reduzidos, a empresa gera lucro devido ao alto volume de usuários e uso contínuo dos serviços.
+
+---
+
+### IAM - AWS
