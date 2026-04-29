@@ -156,3 +156,71 @@ Criar uma função no AWS Lambda que automaticamente interrompe uma instância d
 ---
 
 ### VPC E EC2
+
+Esse módulo mostra como criar uma vpc utilizando uma instância
+
+## Objetivos do Laboratório
+* Criar uma VPC personalizada
+* Configurar sub-redes públicas e privadas
+* Implementar conectividade com Internet Gateway e NAT Gateway
+* Configurar regras de segurança com Security Groups
+* Provisionar uma instância EC2 com servidor web
+* 
+
+### Recursos Criados
+## * VPC
+CIDR: 10.0.0.0/16
+DNS habilitado
+## * Sub-redes
+*Tipo	CIDR	AZ
+*Pública	10.0.0.0/24	us-east-1a
+*Pública	10.0.2.0/24	us-east-1b
+*Privada	10.0.1.0/24	us-east-1a
+Privada	10.0.3.0/24	us-east-1b
+
+## Segurança
+
+Security Group: Web Security Group
+
+## Tipo	Porta	Origem
+* HTTP	80	0.0.0.0/0
+* EC2 (Servidor Web)
+* Nome: Web Server 1
+*AMI: Amazon Linux 2023
+*Tipo: t2.micro
+*Sub-rede: Pública
+*IP público: Ativado
+
+## User Data Script
+#!/bin/bash
+dnf install -y httpd wget php mariadb105-server
+wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-100-ACCLFO-2/2-lab2-vpc/s3/lab-app.zip
+unzip lab-app.zip -d /var/www/html/
+chkconfig httpd on
+service httpd start
+
+## Acesso à Aplicação
+
+Após a inicialização da instância:
+
+Copiar o Public IPv4 DNS
+Acessar via navegador:
+http://<public-dns>
+
+## Resultado: Página web com informações da instância exibida com sucesso.
+
+### Conceitos Aprendidos
+Segmentação de rede com VPC
+Diferença entre sub-rede pública e privada
+Uso de Internet Gateway vs NAT Gateway
+Configuração de Security Groups
+Provisionamento automatizado com User Data
+
+## Status
+* Laboratório concluído com sucesso
+
+## Próximos Passos
+Adicionar Load Balancer (ELB)
+Implementar Auto Scaling
+Migrar infraestrutura para Terraform
+Adicionar banco de dados gerenciado (RDS)
