@@ -127,9 +127,9 @@ Evitar erros com proteções
 
 ### AWS LAMBDA
 
-Você vai criar uma função no AWS Lambda que automaticamente interrompe uma instância do Amazon EC2 a cada minuto. Para isso, a função usará permissões definidas por uma role do IAM.
+Criar uma função no AWS Lambda que automaticamente interrompe uma instância do Amazon EC2 a cada minuto. Para isso, a função usará permissões definidas por uma role do IAM.
 
-Principais etapas:
+## Principais etapas:
 
 Criar a função Lambda
 Nome: myStopinator
@@ -150,8 +150,8 @@ Verificar funcionamento
 Confirmar no EC2 se a instância foi parada
 Se reiniciar a instância, ela será parada novamente em até 1 minuto
 
-Objetivo:
-Automatizar o desligamento de uma instância EC2 usando Lambda + EventBridge, sem precisar de servidor dedicado.
+## Objetivo:
+* Automatizar o desligamento de uma instância EC2 usando Lambda + EventBridge, sem precisar de servidor dedicado.
 
 ---
 
