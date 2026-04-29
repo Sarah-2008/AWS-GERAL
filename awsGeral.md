@@ -131,24 +131,24 @@ Criar uma função no AWS Lambda que automaticamente interrompe uma instância d
 
 ## Principais etapas:
 
-Criar a função Lambda
-Nome: myStopinator
-Runtime: Python 3.11
-Usar a role existente: myStopinatorRole
-Configurar o gatilho
-Criar uma regra no EventBridge chamada everyMinute
-Usar a expressão rate(1 minute) para executar a função a cada minuto
-Editar o código da função
-Colar um script em Python que usa o boto3 para parar instâncias EC2
-Substituir:
-Região (<REPLACE_WITH_REGION>)
-ID da instância (<REPLACE_WITH_INSTANCE_ID>)
-Implantar e monitorar
-Salvar e implantar a função
-Acompanhar execuções e erros na aba “Monitorar”
-Verificar funcionamento
-Confirmar no EC2 se a instância foi parada
-Se reiniciar a instância, ela será parada novamente em até 1 minuto
+* Criar a função Lambda
+* Nome: myStopinator
+* Runtime: Python 3.11
+* Usar a role existente: myStopinatorRole
+* Configurar o gatilho
+* Criar uma regra no EventBridge chamada everyMinute
+* Usar a expressão rate(1 minute) para executar a função a cada minuto
+* Editar o código da função
+* Colar um script em Python que usa o boto3 para parar instâncias EC2
+* Substituir:
+* Região (<REPLACE_WITH_REGION>)
+* ID da instância (<REPLACE_WITH_INSTANCE_ID>)
+* Implantar e monitorar
+* Salvar e implantar a função
+* Acompanhar execuções e erros na aba “Monitorar”
+* Verificar funcionamento
+* Confirmar no EC2 se a instância foi parada
+* Se reiniciar a instância, ela será parada novamente em até 1 minuto
 
 ## Objetivo:
 * Automatizar o desligamento de uma instância EC2 usando Lambda + EventBridge, sem precisar de servidor dedicado.
