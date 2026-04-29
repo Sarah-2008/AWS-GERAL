@@ -65,17 +65,16 @@ Parte dessa redução de custo é repassada aos clientes
 
 ---
 
-🧪 Objetivo do laboratório
-
-Aprender o básico do Amazon EC2, incluindo:
+### Básico do Amazon EC2
 
 Criar e configurar uma instância
 Monitorar desempenho
 Ajustar segurança
 Redimensionar recursos
 Testar proteções e limites
-⚙️ Principais atividades
-1. Criar uma instância EC2
+
+## Principais atividades
+* 1. Criar uma instância EC2
 Nome: Web Server
 AMI: Amazon Linux 2023
 Tipo: t2.micro
@@ -86,37 +85,37 @@ Adicionar script (user data) para:
 Instalar Apache
 Iniciar servidor web
 Criar página HTML simples
-2. Monitorar a instância
+* 2. Monitorar a instância
 Verificar status (2/2 checks)
 Acompanhar métricas no CloudWatch
 Consultar:
 Logs do sistema
 Captura de tela da instância
-3. Liberar acesso ao servidor web
+* 3. Liberar acesso ao servidor web
 Problema: site não abre inicialmente
 Solução:
 Editar grupo de segurança
 Liberar porta HTTP (80) para qualquer IP
 Resultado: página “Hello From Your Web Server!” aparece
-4. Redimensionar recursos
+* 4. Redimensionar recursos
 Parar a instância
 Alterar:
 Tipo: de t2.micro → t2.small
 Disco: de 8 GB → 10 GB
 Reiniciar a instância
-5. Explorar limites do EC2
+* 5. Explorar limites do EC2
 Usar Service Quotas
 Ver limites de instâncias por região
 Entender restrições da conta AWS
-6. Testar proteção contra interrupção
+* 6. Testar proteção contra interrupção
 Tentativa de parar a instância falha (proteção ativa)
 Desativar proteção
 Parar instância com sucesso
-⏱️ Duração
-Aproximadamente 35 minutos
-🧠 Conclusão
 
-Você aprende na prática como:
+## Duração
+Aproximadamente 35 minutos
+
+## Conclusão
 
 Criar e configurar servidores na nuvem
 Controlar acesso com segurança
@@ -125,6 +124,8 @@ Ajustar capacidade conforme necessidade
 Evitar erros com proteções
 
 ---
+
+### AWS LAMBDA
 
 Você vai criar uma função no AWS Lambda que automaticamente interrompe uma instância do Amazon EC2 a cada minuto. Para isso, a função usará permissões definidas por uma role do IAM.
 
@@ -151,3 +152,7 @@ Se reiniciar a instância, ela será parada novamente em até 1 minuto
 
 Objetivo:
 Automatizar o desligamento de uma instância EC2 usando Lambda + EventBridge, sem precisar de servidor dedicado.
+
+---
+
+### VPC E EC2
