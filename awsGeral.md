@@ -224,3 +224,13 @@ Adicionar Load Balancer (ELB)
 Implementar Auto Scaling
 Migrar infraestrutura para Terraform
 Adicionar banco de dados gerenciado (RDS)
+---
+## códigos:
+# Atualizar e instalar Node.js 18
+curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
+sudo yum install -y nodejs
+
+# Criar pasta do projeto
+mkdir lab-livros && cd lab-livros
+npm init -y
+npm install express
