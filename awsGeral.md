@@ -215,17 +215,8 @@ Diferença entre sub-rede pública e privada
 Uso de Internet Gateway vs NAT Gateway
 Configuração de Security Groups
 Provisionamento automatizado com User Data
-
-## Status
-* Laboratório concluído com sucesso
-
-## Próximos Passos
-Adicionar Load Balancer (ELB)
-Implementar Auto Scaling
-Migrar infraestrutura para Terraform
-Adicionar banco de dados gerenciado (RDS)
 ---
-# códigos:
+# Códigos:
 ## Atualizar e instalar Node.js 18
 * curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
 * sudo yum install -y nodejs
