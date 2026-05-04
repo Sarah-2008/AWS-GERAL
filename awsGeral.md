@@ -201,11 +201,11 @@ service httpd start
 
 ## Acesso à Aplicação
 
-Após a inicialização da instância:
+* ## Após a inicialização da instância:
 
-Copiar o Public IPv4 DNS
-Acessar via navegador:
-http://<public-dns>
+* Copiar o Public IPv4 DNS
+* Acessar via navegador:
+* http://<public-dns>
 
 ## Resultado: 
 Página web com informações da instância exibida com sucesso.
