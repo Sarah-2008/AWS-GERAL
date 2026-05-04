@@ -224,10 +224,10 @@ Página web com informações da instância exibida com sucesso.
 * nano (nome da pasta)
 
 ## Salvar o pojeto em uma instância seria assim:
-* control O enter
+* cntrl+O enter
 
 ## Voltar para o terminal
-* control x
+* ctrl x
 
 ## Código para programar uma api exemplo:
 <img width="1572" height="571" alt="image" src="https://github.com/user-attachments/assets/46784a4e-b0ef-4585-9246-3a7a1b549edf" />
