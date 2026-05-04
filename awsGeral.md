@@ -216,7 +216,7 @@ Uso de Internet Gateway vs NAT Gateway
 Configuração de Security Groups
 Provisionamento automatizado com User Data
 ---
-# Códigos:
+# Códigos para usar quando ouver que fazer uma API com uma instância (linux):
 ## Atualizar e instalar Node.js 18
 * curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
 * sudo yum install -y nodejs
@@ -226,6 +226,9 @@ Provisionamento automatizado com User Data
 * npm init -y
 * npm install express
 * nano (nome da pasta)
+
+## Salvar o pojeto em uma instância seria assim:
+* control O enter
 
 ## Código para programar uma api exemplo:
 <img width="1572" height="571" alt="image" src="https://github.com/user-attachments/assets/46784a4e-b0ef-4585-9246-3a7a1b549edf" />
