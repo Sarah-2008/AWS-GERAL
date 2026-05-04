@@ -207,15 +207,11 @@ Copiar o Public IPv4 DNS
 Acessar via navegador:
 http://<public-dns>
 
-## Resultado: Página web com informações da instância exibida com sucesso.
+## Resultado: 
+Página web com informações da instância exibida com sucesso.
 
-### Conceitos Aprendidos
-Segmentação de rede com VPC
-Diferença entre sub-rede pública e privada
-Uso de Internet Gateway vs NAT Gateway
-Configuração de Security Groups
-Provisionamento automatizado com User Data
 ---
+
 # Códigos para usar quando ouver que fazer uma API com uma instância (linux):
 ## Atualizar e instalar Node.js 18
 * curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
