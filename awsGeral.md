@@ -225,3 +225,6 @@ Provisionamento automatizado com User Data
 * mkdir lab-livros && cd lab-livros
 * npm init -y
 * npm install express
+
+## Código para programar uma api exemplo:
+<img width="1572" height="571" alt="image" src="https://github.com/user-attachments/assets/46784a4e-b0ef-4585-9246-3a7a1b549edf" />
