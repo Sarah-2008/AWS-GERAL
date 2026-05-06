@@ -231,3 +231,152 @@ Página web com informações da instância exibida com sucesso.
 
 ## Código para programar uma api exemplo:
 <img width="1572" height="571" alt="image" src="https://github.com/user-attachments/assets/46784a4e-b0ef-4585-9246-3a7a1b549edf" />
+
+---
+
+# Lab 4: Trabalhando com EBS
+
+## Visão Geral
+Este laboratório demonstra como utilizar o Amazon EBS com instâncias EC2.
+
+Você irá aprender a:
+- Criar um volume EBS
+- Anexar a uma instância EC2
+- Criar um sistema de arquivos
+- Criar snapshots (backup)
+- Restaurar volumes a partir de snapshots
+
+## O que é o Amazon EBS?
+
+O Amazon EBS é um armazenamento persistente para instâncias EC2.
+
+### Características:
+- Persistente (independente da instância)
+- Alta disponibilidade
+- Alta confiabilidade
+- Suporte a snapshots (backup)
+- Tamanhos de 1 GB até 16 TB
+
+## 1. Criar Volume EBS
+
+1. Acesse **EC2 > Volumes**
+2. Clique em **Create Volume**
+
+Configuração:
+- Tipo: `gp2`
+- Tamanho: `1 GiB`
+- Availability Zone: mesma da instância
+
+Tag:
+- Key: `Name`
+- Value: `My Volume`
+
+## 2. Anexar Volume
+
+1. Selecione **My Volume**
+2. Actions → **Attach Volume**
+3. Instância: `Lab`
+4. Device: `/dev/sdb`
+
+##  3. Conectar na Instância
+
+1. EC2 → Instances
+2. Selecione a instância
+3. Clique em **Connect**
+4. Use **Session Manager**
+
+```bash
+sudo su -l ec2-user
+```
+
+## 4. Configurar Sistema de Arquivos
+
+Ver discos:
+```bash
+df -h
+```
+
+Criar sistema de arquivos:
+```bash
+sudo mkfs -t ext3 /dev/sdb
+```
+
+Criar diretório:
+```bash
+sudo mkdir /mnt/data-store
+```
+
+Montar volume:
+```bash
+sudo mount /dev/sdb /mnt/data-store
+```
+
+Automatizar montagem:
+```bash
+echo "/dev/sdb /mnt/data-store ext3 defaults,noatime 1 2" | sudo tee -a /etc/fstab
+```
+
+Verificar:
+```bash
+df -h
+```
+
+Criar arquivo:
+```bash
+sudo sh -c "echo algum texto foi escrito > /mnt/data-store/file.txt"
+```
+
+Ver conteúdo:
+```bash
+cat /mnt/data-store/file.txt
+```
+
+## 5. Criar Snapshot
+
+1. EC2 → Volumes
+2. Selecione **My Volume**
+3. Actions → **Create Snapshot**
+
+Tag:
+- Name: `My Snapshot`
+
+## 6. Deletar Arquivo
+
+```bash
+sudo rm /mnt/data-store/file.txt
+ls /mnt/data-store/
+```
+
+## 7. Restaurar Snapshot
+
+### Criar novo volume:
+1. EC2 → Snapshots
+2. Selecione **My Snapshot**
+3. Clique em **Create Volume**
+
+Configuração:
+- Mesma AZ
+- Nome: `Restored Volume`
+
+### Anexar volume restaurado:
+1. EC2 → Volumes
+2. Selecione **Restored Volume**
+3. Attach:
+   - Instância: Lab
+   - Device: `/dev/sdc`
+
+### Montar volume restaurado:
+
+```bash
+sudo mkdir /mnt/data-store2
+sudo mount /dev/sdc /mnt/data-store2
+```
+
+Verificar arquivo:
+```bash
+ls /mnt/data-store2/
+```
+
+## Observação
+
+Snapshots são armazenados no Amazon S3 e permitem recuperar dados mesmo após exclusão do volume original.
