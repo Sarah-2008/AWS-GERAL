@@ -380,3 +380,102 @@ ls /mnt/data-store2/
 ## Observação
 
 Snapshots são armazenados no Amazon S3 e permitem recuperar dados mesmo após exclusão do volume original.
+
+---
+
+# Laboratório 5 - Amazon RDS com Aplicação Web
+
+##  Objetivo
+Neste laboratório foi criada uma instância de banco de dados gerenciada utilizando o Amazon RDS e realizada a integração com uma aplicação web hospedada em uma instância EC2.
+
+# Etapa 1 - Criar Security Group do Banco
+
+## Configurações
+
+| Campo | Valor |
+|---|---|
+| Nome | DB Security Group |
+| Descrição | Permit access from Web Security Group |
+| VPC | Lab VPC |
+
+## Regra de Entrada
+
+| Tipo | Porta | Origem |
+|---|---|---|
+| MySQL/Aurora | 3306 | Web Security Group |
+
+# Etapa 2 - Criar DB Subnet Group
+
+## Configurações
+
+| Campo | Valor |
+|---|---|
+| Nome | DB-Subnet-Group |
+| Descrição | DB Subnet Group |
+| VPC | Lab VPC |
+
+## Sub-redes Selecionadas
+
+```text
+10.0.1.0/24
+10.0.3.0/24
+```
+
+## Availability Zones
+
+```text
+us-east-1a
+us-east-1b
+```
+
+# Etapa 3 - Criar Instância RDS
+
+## Configuração do Banco
+
+| Campo | Valor |
+|---|---|
+| Engine | MySQL |
+| Template | Dev/Test |
+| Disponibilidade | Multi-AZ |
+| DB Identifier | lab-db |
+| Usuário | main |
+| Senha | lab-password |
+
+## Classe da Instância
+
+```text
+db.t3.micro
+```
+
+## Armazenamento
+
+| Campo | Valor |
+|---|---|
+| Tipo | General Purpose SSD |
+| Tamanho | 20 GB |
+
+## Conectividade
+
+| Campo | Valor |
+|---|---|
+| VPC | Lab VPC |
+| Security Group | DB Security Group |
+
+## Configuração Adicional
+
+| Campo | Valor |
+|---|---|
+| Initial Database Name | lab |
+| Backups Automáticos | Desativado |
+| Criptografia | Desativada |
+
+# Etapa 4 - Conectar Aplicação Web ao Banco
+
+## Dados de Conexão
+
+```text
+Endpoint: lab-db.xxxx.us-east-1.rds.amazonaws.com
+Database: lab
+Username: main
+Password: lab-password
+```
